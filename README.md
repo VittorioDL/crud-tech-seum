@@ -12,12 +12,12 @@ Workflow:
    
 Convenzioni di codice:
 - nomi branch:
-  1. back-end/utenti
-  2. back-end/autori
-  3. back-end/reperti
-  4. front-end/utenti
-  5. front-end/autori
-  6. front-end/reperti
+  1. back-end/utenti (Francesco Rosati, Bartolomeo Cassano)
+  2. back-end/autori (Salvatore Russo, Francesca Perna, Marco Pompilio)
+  3. back-end/reperti (Alessandro Mangiacotti, Nilo Netti)
+  4. front-end/utenti (Alessandro Crisetti, Nicola Russo)
+  5. front-end/autori (Daniele Natale, Giovanni Sabatelli, Giovanni Steduto)
+  6. front-end/reperti (Vittorio De Lucia, Simona Pazienza, Vincenzo De Bonis)
   
 - nomi-file.*
 - nomi_varibili
