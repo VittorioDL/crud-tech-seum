@@ -9,16 +9,15 @@ Workflow:
 5. Dopo il push aggiornare i "compiti" sulla sezione projects (se si ha appena iniziato un compito 
    spostarlo sulla colonna "In progress"; una volta finito, spostarlo sulla colonna "Done")
    
-   
-Convenzioni di codice:
-- nomi branch:
+Suddivisione branch:
   1. back-end/utenti (Francesco Rosati, Bartolomeo Cassano)
   2. back-end/autori (Salvatore Russo, Francesca Perna, Marco Pompilio)
   3. back-end/reperti (Alessandro Mangiacotti, Nilo Netti)
   4. front-end/utenti (Alessandro Crisetti, Nicola Russo)
   5. front-end/autori (Daniele Natale, Giovanni Sabatelli, Giovanni Steduto)
   6. front-end/reperti (Vittorio De Lucia, Simona Pazienza, Vincenzo De Bonis)
-  
+
+Convenzioni di codice:
 - nomi-file.*
 - nomi_varibili
 - Commentare il più possibile e in maniera chiare il codice
