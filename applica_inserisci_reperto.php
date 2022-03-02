@@ -1,10 +1,10 @@
 <?php
-    include(connessione.php);
+    include("connessione.php");
 
-    $datacatalogazione = $_GET['codrelativo'];
+    $datacatalogazione = $_GET['datacatalogazione'];
     $nome = $_GET['nome'];
-    $sezione = ['sezione'];
-    $codrelarivo = $_GET['codrelativo'];
+    $sezione = $_GET['sezione'];
+    $codrelativo = $_GET['codrelativo'];
     $definizione = $_GET['definizione'];
     $denominazionestorica = $_GET['denominazionestorica'];
     $descrizione = $_GET['descrizione'];
@@ -13,12 +13,18 @@
     $annofineuso = $_GET['annofineuso'];
     $scopo = $_GET['scopo'];
     $stato = $_GET['stato'];
-    $osservazioni = $_GET['scopo'];
+    $osservazioni = $_GET['osservazioni'];
 
-    $permessi = $_SESSION['permessi'];
+    #$permessi = $_SESSION['permessi'];
+    $permessi = 1;
 
-    $query = "INSERT INTO `repertinuova` (`codassoluto`, `datacatalogazione`, `nome`, `sezione`, `codrelativo`, `definizione`, `denominazionestorica`, `descrizione`, `modouso`, `annoiniziouso`, `annofineuso`, `scopo`, `stato`, `osservazioni`)
-     VALUES (NULL, $datacatalogazione, $nome, $sezione, $codrelarivo, $definizione, $denominazionestorica, $descrizione, $modouso, $annoiniziouso, $annofineuso, $scopo, $stato, $osservazioni)";
+    $query = "INSERT INTO repertinuova ( datacatalogazione, nome, sezione, codrelativo, definizione, denominazionestorica, descrizione, modouso, annoiniziouso, annofineuso, scopo,stato, osservazioni)
+     VALUES ('$datacatalogazione', '$nome', '$sezione', $codrelativo, '$definizione', '$denominazionestorica', '$descrizione', '$modouso', '$annoiniziouso', '$annofineuso', '$scopo', $stato, '$osservazioni')";
+
+
+    echo $query;
+    $result = mysqli_query($con, $query) or die ("errore");
+    mysqli_close($con);
 
     if ($permessi == 1)
         header("location:admin.php");
