@@ -1,22 +1,28 @@
 <?php
     include(connessione.php);
 
-    $datacatalogazione = $GET['codrelativo'];
-    $nome = $GET['nome'];
-    $sezione = $GET['sezione'];
-    $codrelarivo = $GET['codrelativo'];
-    $definizione = $GET['definizione'];
-    $denominazionestorica = $GET['denominazionestorica'];
-    $descrizione = $GET['descrizione'];
-    $modouso = $GET['modouso'];
-    $annoiniziouso = $GET['annoiniziouso'];
-    $annofineuso = $GET['annofineuso'];
-    $scopo = $GET['scopo'];
-    $stato = $GET['stato'];
-    $osservazioni = $GET['scopo'];
+    $datacatalogazione = $_GET['codrelativo'];
+    $nome = $_GET['nome'];
+    $sezione = ['sezione'];
+    $codrelarivo = $_GET['codrelativo'];
+    $definizione = $_GET['definizione'];
+    $denominazionestorica = $_GET['denominazionestorica'];
+    $descrizione = $_GET['descrizione'];
+    $modouso = $_GET['modouso'];
+    $annoiniziouso = $_GET['annoiniziouso'];
+    $annofineuso = $_GET['annofineuso'];
+    $scopo = $_GET['scopo'];
+    $stato = $_GET['stato'];
+    $osservazioni = $_GET['scopo'];
+
+    $permessi = $_SESSION['permessi'];
 
     $query = "INSERT INTO `repertinuova` (`codassoluto`, `datacatalogazione`, `nome`, `sezione`, `codrelativo`, `definizione`, `denominazionestorica`, `descrizione`, `modouso`, `annoiniziouso`, `annofineuso`, `scopo`, `stato`, `osservazioni`)
      VALUES (NULL, $datacatalogazione, $nome, $sezione, $codrelarivo, $definizione, $denominazionestorica, $descrizione, $modouso, $annoiniziouso, $annofineuso, $scopo, $stato, $osservazioni)";
 
+    if ($permessi == 1)
+        header("location:admin.php");
+    else if($permessi == 0)
+        header("location:home.php");
 
 ?>
