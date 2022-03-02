@@ -16,11 +16,11 @@
             
             if($permessi==0)
             {
-                echo '<button class="btn btn-primary my-5"> <a href="home.php" class="text-light text-decoration-none">Home</a></button>';
+                echo '<a href="home.php" class="text-light text-decoration-none btn btn-primary my-5">Home</a>';
             }
             else if($permessi==1)
             {
-                echo '<button class="btn btn-primary my-5"> <a href="home-admin.php" class="text-light text-decoration-none">Home</a></button>';
+                echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-primary my-5">Home</a>';
             }
         ?>
     </div>
@@ -52,11 +52,6 @@
                 $materiale = $_POST['materiale'];
                 $acquisizione = $_POST['acquisizione'];
                 
-                // $id = $row['codassoluto'];
-                // $nome = $row['nome'];
-                // $sezione = $row['sezione'];
-                // $data = $row['datacatalogazione'];
-                // $stato = $row['stato'];
                 
                 $query = 'SELECT DISTINCT repertinuova.codassoluto, repertinuova.nome, repertinuova.sezione, repertinuova.datacatalogazione, repertinuova.stato
                 FROM repertinuova, hafatto, compostoda, acquisizioni, autore
@@ -104,9 +99,9 @@
                         <td>' . $data . '</td>
                         <td>' . $stato . '</td>
                         <td>
-                            <button class="btn btn-primary"><a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Modifica</a></button>
-                            <button class="btn btn-danger"><a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Cancella</a></button>
-                            <button class="btn btn-info" ><a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Info</a></button>
+                            <a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-primary">Modifica</a>
+                            <a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-info">Info</a>
                             </td>
                         </tr>';
                     }

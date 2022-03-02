@@ -25,10 +25,10 @@ include 'connect.php';
     <div class="container my-5">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta reperti -->
-            <button class="btn btn-success ms-0"> <a href="inserimento-reperto.php" class="text-light text-decoration-none">Aggiungi reperto</a></button>
+            <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi reperto</a>
             
             <!-- Bottone gestione utenti -->
-            <button class="btn btn-success me-0"> <a href="gestione-utenti.php" class="text-light text-decoration-none">Gestione utenti</a></button>
+            <a href="gestione-utenti.php" class="text-light text-decoration-none btn btn-success me-0">Gestione utenti</a>
         </div>
     </div>
 
@@ -158,10 +158,10 @@ include 'connect.php';
                         <td>' . $data . '</td>
                         <td>' . $stato . '</td>
                         <td>
-                            <button class="btn btn-primary"><a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Modifica</a></button>
-                            <button class="btn btn-danger")"><a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Cancella</a></button>
-                            <button class="btn btn-info" ><a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Info</a></button>
-                            </td>
+                            <a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-primary">Modifica</a>
+                            <a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-info">Info</a>
+                        </td>
                         </tr>';
                     }
                 }

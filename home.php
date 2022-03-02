@@ -14,16 +14,18 @@ include 'connect.php';
 </head>
 
 <body>
-    <!-- Titolo -->
-    <div class="container">
-        <h2 class="text-center">Tech-Seum</h2>
-        <h3 class="text-center">CRUD</h4>
+    <!-- Titolo e logout-->
+    <div class="container py-5">
+        <div class="d-flex justify-content-between">
+            <h2 class="mx-auto">Tech-Seum CRUD</h2>
+            <a href="logout.php" class="btn btn-dark btn-lg">Log out</a>
+        </div>
     </div>
 
     <div class="container">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta reperti -->
-            <button class="btn btn-success ms-0"> <a href="inserimento-reperto.php?" class="text-light text-decoration-none">Aggiungi reperto</a></button>
+            <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi reperto</a>
         </div>
     </div>
 
@@ -152,10 +154,10 @@ include 'connect.php';
                         <td>' . $data . '</td>
                         <td>' . $stato . '</td>
                         <td>
-                            <button class="btn btn-primary"><a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Modifica</a></button>
-                            <button class="btn btn-danger")"><a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Cancella</a></button>
-                            <button class="btn btn-info" ><a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Info</a></button>
-                            </td>
+                            <a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-primary">Modifica</a>
+                            <a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-info">Info</a>
+                        </td>
                         </tr>';
                     }
                 }
