@@ -10,7 +10,19 @@
 <body>
     <!-- Pulsante per tornare alla home -->
     <div class="container"> 
-        <button class="btn btn-primary my-5"> <a href="home.php" class="text-light text-decoration-none">Home</a></button>
+        <?php
+            session_start();
+            $permessi = $_SESSION['permessi'];
+            
+            if($permessi==0)
+            {
+                echo '<button class="btn btn-primary my-5"> <a href="home.php" class="text-light text-decoration-none">Home</a></button>';
+            }
+            else if($permessi==1)
+            {
+                echo '<button class="btn btn-primary my-5"> <a href="home-admin.php" class="text-light text-decoration-none">Home</a></button>';
+            }
+        ?>
     </div>
 
     <!-- Risultato ricerca -->
@@ -94,7 +106,8 @@
                         <td>
                             <button class="btn btn-primary"><a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Modifica</a></button>
                             <button class="btn btn-danger"><a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Cancella</a></button>
-                        </td>
+                            <button class="btn btn-info" ><a href="visualizza-reperto.php?id=' . $id . ' " class="text-light text-decoration-none">Info</a></button>
+                            </td>
                         </tr>';
                     }
                 }

@@ -14,24 +14,30 @@ include 'connect.php';
 </head>
 
 <body>
-    <!-- Titolo -->
-    <div class="container">
-        <h2 class="text-center">Tech-Seum</h2>
-        <h3 class="text-center">CRUD</h4>
+    <!-- Titolo e logout-->
+    <div class="container py-5">
+        <div class="d-flex justify-content-between">
+            <h2 class="mx-auto">Tech-Seum CRUD</h2>
+            <a href="logout.php" class="btn btn-dark btn-lg">Log out</a>
+        </div>
     </div>
 
-    <div class="container">
+    <div class="container my-5">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta reperti -->
-            <button class="btn btn-success ms-0"> <a href="inserimento-reperto.php?" class="text-light text-decoration-none">Aggiungi reperto</a></button>
+            <button class="btn btn-success ms-0"> <a href="inserimento-reperto.php" class="text-light text-decoration-none">Aggiungi reperto</a></button>
+            
+            <!-- Bottone gestione utenti -->
+            <button class="btn btn-success me-0"> <a href="gestione-utenti.php" class="text-light text-decoration-none">Gestione utenti</a></button>
         </div>
     </div>
 
     <!-- Barra di ricerca -->
     <?php
         session_start();
-        $_SESSION['permessi'] = 0;
+        $_SESSION['permessi'] = 1;
     ?>
+
     <form action='ricerca-reperti.php' method='post'>
         <div class="container my-5">
             <div class="input-group mb-3">
