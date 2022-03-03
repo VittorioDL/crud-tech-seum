@@ -15,8 +15,7 @@
     $stato = $_GET['stato'];
     $osservazioni = $_GET['osservazioni'];
 
-    #$permessi = $_SESSION['permessi'];
-    $permessi = 1;
+    $permessi = $_SESSION['permessi'];
 
     $query = "INSERT INTO repertinuova ( data_catalogazione, nome, sezione, cod_relativo, definizione, denominazione_storica, descrizione, modouso, anno_inizio_uso, annofineuso, scopo,stato, osservazioni)
      VALUES ('$data_catalogazione', '$nome', '$sezione', $cod_relativo, '$definizione', '$denominazione_storica', '$descrizione', '$modouso', '$anno_inizio_uso', '$annofineuso', '$scopo', $stato, '$osservazioni')";
