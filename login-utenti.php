@@ -21,7 +21,7 @@ session_destroy();
         </div>
     </div>
 
-    <form  method = 'post' action = 'check_login.php'>
+    <form  method = 'post' action = 'check-login.php'>
 
         <div style="height: 150px;" align = "center">
             <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
@@ -43,12 +43,15 @@ session_destroy();
 
                 <br><br>
 
-                <div class="container">
+                <div class="container" align = "center" >
                     <div class="d-flex justify-content-between">
                         <!-- Bottone aggiunta utenti -->
                         <a href="check-login.php" class="text-light text-decoration-none btn btn-success ms-0">SUBMIT</a>
                     </div>
                 </div>
+                <br>
+
+                <button type = "submit"> SUBMIT</button>
 
             </div>
     
