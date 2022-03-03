@@ -28,7 +28,7 @@ if(!isset($_SESSION['logged_in'])){
         </div>
     </div>
 
-    <div class="container">
+    <div class="container my-5">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta reperti -->
             <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi reperto</a>
@@ -39,6 +39,7 @@ if(!isset($_SESSION['logged_in'])){
     <?php
         $_SESSION['permessi'] = 0;
     ?>
+
     <form action='ricerca-reperti.php' method='post'>
         <div class="container my-5">
             <div class="input-group mb-3">
@@ -114,7 +115,7 @@ if(!isset($_SESSION['logged_in'])){
 
     <!-- Tabella reperti -->
     <div class="container">
-        <table class="table text-center">
+        <table class="table text-center table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>

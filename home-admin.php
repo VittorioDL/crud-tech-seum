@@ -118,7 +118,7 @@ if(!isset($_SESSION['logged_in'])){
 
     <!-- Tabella reperti -->
     <div class="container">
-        <table class="table text-center">
+        <table class="table text-center table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
