@@ -12,6 +12,10 @@
     <div class="container"> 
         <?php
             session_start();
+            if(!isset($_SESSION['logged_in'])){
+                header("Location: login-utenti.php"); 
+            }
+
             $permessi = $_SESSION['permessi'];
             
             if($permessi==0)
@@ -27,7 +31,7 @@
 
     <!-- Risultato ricerca -->
     <div class="container">
-        <table class="table text-center">
+        <table class="table text-center table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>

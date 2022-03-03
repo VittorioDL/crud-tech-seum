@@ -1,5 +1,10 @@
 <?php
 include 'connect.php';
+
+session_start();
+if(!isset($_SESSION['logged_in'])){
+    header("Location: login-utenti.php"); 
+}
 ?>
 
 <!DOCTYPE html>
@@ -7,6 +12,7 @@ include 'connect.php';
 
 <head>
     <title>CRUD TechSeum</title>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +28,7 @@ include 'connect.php';
         </div>
     </div>
 
-    <div class="container">
+    <div class="container my-5">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta reperti -->
             <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi reperto</a>
@@ -31,9 +37,9 @@ include 'connect.php';
 
     <!-- Barra di ricerca -->
     <?php
-        session_start();
         $_SESSION['permessi'] = 0;
     ?>
+
     <form action='ricerca-reperti.php' method='post'>
         <div class="container my-5">
             <div class="input-group mb-3">
@@ -109,7 +115,7 @@ include 'connect.php';
 
     <!-- Tabella reperti -->
     <div class="container">
-        <table class="table text-center">
+        <table class="table text-center table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
