@@ -152,7 +152,7 @@ include 'connect.php';
         </div>
     </div> 
 </form>
-    <div class="container"> 
+    <div class="container bg-light p-2  bg-opacity-75"> 
     <p class="text-center"><button class="btn btn-success"> <a href="inserimento-database.php" class="text-light text-decoration-none">Aggiungi</a></button></p>
     </div>
 </body>
