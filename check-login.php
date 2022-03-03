@@ -1,7 +1,9 @@
 <?php
    include 'connessione.php';
+   session_start();
    $us=$_POST["utente"];
    $pa=$_POST["password"];
+   $_SESSION['logged_in']=TRUE;
 
 
    $query="SELECT * FROM utente
