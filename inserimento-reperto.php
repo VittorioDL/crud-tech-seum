@@ -20,11 +20,11 @@ include 'connect.php';
 
                 if($permessi==0)
                 {
-                    echo '<a href="home.php" class="text-light text-decoration-none btn btn-secondary my-5">Annulla</a>';
+                    echo '<a href="home.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>';
                 }
                 else if($permessi==1)
                 {
-                    echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-secondary my-5">Annulla</a>';
+                    echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>';
                 }
             ?>
     </div>
@@ -38,15 +38,15 @@ include 'connect.php';
 
 <form action='inserimento-database.php' method='post'>
 
-    <input name="nome" type="text" class="col-auto" placeholder="Nome reperto"><br><br>
-    <input name="denominazione_storica" type="text" class="col-auto" placeholder="Denominazione storica"><br><br>
-    <input name="immagine" type="file" class="col-auto" placeholder="Seleziona file"><br><br>
-    <input name="data_catalogazione" type="date" class="col-auto" placeholder="Data catalogazione"><br><br>
-    <input name="anno_inizio" type="number" class="col-auto" min="1800" step="1" placeholder="Anno inizio uso"><br><br>
-    <input name="anno_fine" type="number" class="col-auto" min="1800" step="1" placeholder="Anno fine uso"><br><br>  
+    <input name="nome" type="text" class="col-auto my-2" placeholder="Nome reperto"><br><br>
+    <input name="denominazione_storica" type="text" class="col-auto my-2" placeholder="Denominazione storica"><br><br>
+    <input name="immagine" type="file" class="col-auto my-2" placeholder="Seleziona file"><br><br>
+    <input name="data_catalogazione" type="date" class="col-auto my-2" placeholder="Data catalogazione"><br><br>
+    <input name="anno_inizio" type="number" class="col-auto my-2" min="1800" step="1" placeholder="Anno inizio uso"><br><br>
+    <input name="anno_fine" type="number" class="col-auto my-2" min="1800" step="1" placeholder="Anno fine uso"><br><br>  
 
     <!-- Selezione autore -->
-    <select name="autore" class="col-auto">
+    <select name="autore" class="col-auto my-2">
         <option value="" class="text-white bg-secondary">Autore</option>
             <?php
                 $queryAutori = "select * from autore order by nomeautore asc";
@@ -58,7 +58,7 @@ include 'connect.php';
     </select><br><br>
 
     <!-- Selezione sezione -->
-    <select name="sezione" class="col-auto">
+    <select name="sezione" class="col-auto my-2">
         <option value="" class="text-white bg-secondary">Sezione</option>
         <option value="I">Informatica</option>
         <option value="E">Elettronica</option>
@@ -67,7 +67,7 @@ include 'connect.php';
     </select><br><br>
 
     <!-- Selezione stato -->
-    <select name="stato" class="col-auto">
+    <select name="stato" class="col-auto my-2">
         <option value="" class="text-white bg-secondary">Stato</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -77,7 +77,7 @@ include 'connect.php';
     </select><br><br>
 
     <!-- Selezione materiale -->
-    <select name="materiale" class="col-auto">
+    <select name="materiale" class="col-auto my-2">
     <option value="" class="text-white bg-secondary">Materiale</option>
         <?php
             $queryMateriale = "select nomemateriale from compostoda";
@@ -94,7 +94,7 @@ include 'connect.php';
     </select><br><br>
 
     <!-- Selezione acquisizione -->
-    <select name="acquisizione" class="col-auto">
+    <select name="acquisizione" class="col-auto my-2">
         <option value="" class="text-white bg-secondary">Acquisizione</option>
         <option value="D">Donazione</option>
         <option value="A">Acquisto</option>
@@ -104,11 +104,11 @@ include 'connect.php';
         <option value="O">Altro tipo</option>
     </select><br><br>
 
-    <textarea name="definizione" type="text" class="col-auto" placeholder="Definizione reperto" rows="3"></textarea><br><br>
-    <textarea name="descrizione" type="text" class="col-auto" placeholder="Descrizione reperto" rows="3"></textarea><br><br>
-    <textarea name="modo_uso" type="text" class="col-auto" placeholder="Modo d'uso" rows="3"></textarea><br><br>
-    <textarea name="scopo" type="text" class="col-auto" placeholder="Scopo del reperto" rows="3"></textarea><br><br>
-    <textarea name="osservazioni" type="text" class="col-auto" placeholder="Osservazioni reperto" rows="3"></textarea><br><br>
+    <textarea name="definizione" type="text" class="col-auto my-2" placeholder="Definizione reperto" rows="3"></textarea><br><br>
+    <textarea name="descrizione" type="text" class="col-auto my-2" placeholder="Descrizione reperto" rows="3"></textarea><br><br>
+    <textarea name="modo_uso" type="text" class="col-auto my-2" placeholder="Modo d'uso" rows="3"></textarea><br><br>
+    <textarea name="scopo" type="text" class="col-auto my-2" placeholder="Scopo del reperto" rows="3"></textarea><br><br>
+    <textarea name="osservazioni" type="text" class="col-auto my-2" placeholder="Osservazioni reperto" rows="3"></textarea><br><br>
    
 
 </form>
