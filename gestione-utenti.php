@@ -23,6 +23,27 @@ include 'connessione.php';
     </div>
 
     <!-- Pulsante per tornare alla home -->
+    <div class="container">
+        <?php 
+            session_start();
+            #if(!isset($_SESSION['logged_in'])){
+            #   header("Location: login-utenti.php");
+            #}
+
+            $permessi = $_SESSION['permessi'];
+
+            if($permessi == 0)
+            {
+                echo '<a href = "home.php" class = "text-light text-decoration-none btn btn-primary my-5">Home</a>';
+            }
+            else if($permessi == 1)
+            {
+                echo '<a href = "home-admin.php" class = "text-light text-decoration-none btn btn-primary my-5">Home</a>';
+            }
+        ?>    
+    </div>
+
+    <!-- Pulsante per tornare alla home -->
     <div class="container"> 
         <?php
             session_start();
