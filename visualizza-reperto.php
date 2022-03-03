@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visualizzazione reperto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        ul {
+            list-style-type: none;
+        }
+    </style>
 </head>
 <body>
     <?php
@@ -43,104 +48,195 @@
         $query8="SELECT COUNT(codassoluto) as n FROM parti WHERE codassoluto=$codassoluto";
         $ris8=mysqli_query($conn,$query8) or die("Error");
         $row8=mysqli_fetch_assoc($ris8);
-        //nome reperto
-        echo '<div class="container py-5">'.
-        '<div class="d-flex justify-content-between">'.
-             '<h2 class="mx-auto">'.$row['nome'].'</h2>'.
-        '</div>';
-        //dettagli corti
-        echo '<div class="container">';
-        echo 'ID: '.$codassoluto.'<br>';
-        echo 'DATA DI CATALOGAZIONE: '.$row['datacatalogazione'].'<br>';
-        echo 'SEZIONE: ';
-        switch ($row['sezione']) 
+
+        //Dettagli corti
+        $nome=$row['nome'];
+        $datacatalogazione=$row['datacatalogazione'];
+        switch($row['sezione']) 
         {
             case "E":
-                echo "Elettronica";
+                $sezione="Elettronica";
                 break;
             case "I":
-                echo "Informatica";
+                $sezione="Informatica";
                 break;
             case "M":
-                echo "Meccanica";
+                $sezione="Meccanica";
                 break;
             case "S":
-                echo "Scienze";
+                $sezione="Scienze";
                 break;
         }
-        echo '<br>';
-        echo 'ANNO DI INIZIO USO: '.$row['annoiniziouso'].'<br>';
-        echo 'ANNO DI FINE USO: '.$row['annofineuso'].'<br>';
-        echo 'STATO: '.$row['stato'].'<br>';
-        echo 'TIPO DI ACQUISIZIONE: ';
+        $annoiniziouso=$row['annoiniziouso'];
+        $annofineuso=$row['annofineuso'];
+        $stato=$row['stato'];
         switch ($row1['tipoacquisizione']) 
         {
             case "D":
-                echo "Donazione";
+                $tipoacquisizione="Donazione";
                 break;
             case "A":
-                echo "Acquisto";
+                $tipoacquisizione="Acquisto";
                 break;
             case "R":
-                echo "Rubato";
+                $tipoacquisizione="Rubato";
                 break;
             case "C":
-                echo "Costruito";
+                $tipoacquisizione="Costruito";
                 break;
             case "O":
-                echo "Altro tipo di acquisizione";
+                $tipoacquisizione="Altro tipo di acquisizione";
                 break;
         }
-        echo '<br>';
-        echo 'QUANTITA: '.$row1['quantita'].'<br>';
-        echo 'NOME AUTORE: '.$row2['nomeautore'].'<br>';
-        echo 'ANNO DI NASCITA: '.$row2['annonascita'].'<br>';
-        echo 'ANNO DI MORTE: '.$row2['annofine'].'<br>';
-        echo 'MATERIALI: ';
+        $quantita=$row1['quantita'];
+        $nomeautore=$row2['nomeautore'];
+        $annonascita=$row2['annonascita'];
+        $annomorte=$row2['annofine'];
+        $i=0;
         while($row3=mysqli_fetch_assoc($ris3))
         {
-            echo $row3['nomemateriale'].' ';
+            $materiali[$i]=$row3['nomemateriale'];
+            $i++;
         }
-        echo '<br>';
-        echo 'MEDIA: ';
+        $i=0;
         while($row6=mysqli_fetch_assoc($ris6))
         {
-            echo $row6['link'].' ';
+            $media[$i]=$row6['link'];
+            $i++;
         }
-        echo '<br>';
-        echo 'MISURE: ';
+        $i=0;
         while($row7=mysqli_fetch_assoc($ris7))
         {
-            echo $row7['nomemisura'].': '.$row7['valore'].$row7['unitadimisura'].' ';
+            $misure[$i]=$row7['nomemisura'].': '.$row7['valore'].$row7['unitadimisura'];
+            $i++;
         }
-        echo '<br>';
-        echo 'NUMERO PARTI: '.$row8['n'];
-        echo '<br><br>';
-        echo '</div>';
-        //dettagli lunghi
-        echo 'DEFINIZIONE: '.$row['definizione'].'<br>';
-        echo 'DENOMINAZIONE STORICA: '.$row['denominazionestorica'].'<br>';
-        echo 'DESCRIZIONE: '.$row['descrizione'].'<br>';
-        echo 'MODO DI USO: '.$row['modouso'].'<br>';
-        echo 'SCOPO: '.$row['scopo'].'<br>';
-        echo 'OSSERVAZIONI: '.$row['osservazioni'].'<br>';
-        echo 'DIDASCALIA (ITA): '.$row4['didascalia'].'<br>';
-        echo 'DIDASCALIA (ENG): '.$row5['didascalia'].'<br>';
-        //bottone ritorno alla home
+        $nparti=$row8['n'];
+
+        //Dettagli lunghi
+        $definizione=$row['definizione'];
+        $denominazionestorica=$row['denominazionestorica'];
+        $descrizione=$row['descrizione'];
+        $modouso=$row['modouso'];
+        $scopo=$row['scopo'];
+        $osservazioni=$row['osservazioni'];
+        $didascaliaita=$row4['didascalia'];
+        $didascaliaeng=$row5['didascalia'];
+    ?>
+    <!-- Nome reperto -->
+    <div class="container py-5">
+          <div class="d-flex justify-content-between">
+             <h2 class="mx-auto"><?php echo $nome ?></h2>
+    </div>
+    
+    <!-- Bottone ritorno alla home -->
+    <div class="container">
+        <?php
+        session_start();
+        $permessi=$_SESSION['permessi'];
+        if($permessi==0)
+        {
+            echo '<a href="home.php" class="text-light text-decoration-none btn btn-primary my-5">HOME</a>';
+        }
+        else if($permessi==1)
+        {
+            echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-primary my-5">HOME</a>';
+        }
         ?>
-        <div class="container">
-            <?php
-            session_start();
-            $permessi=$_SESSION['permessi'];
-            if($permessi==0)
-            {
-                echo '<a href="home.php" class="text-light text-decoration-none btn btn-primary my-5">HOME</a>';
-            }
-            else if($permessi==1)
-            {
-                echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-primary my-5">HOME</a>';
-            }
-            ?>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 bg-success p-2 text-white bg-opacity-75">
+                <ul>
+                    <li>
+                        <?php echo 'ID: '.$codassoluto?>
+                    </li>
+                    <li>
+                        <?php echo 'DATA CATALOGAZIONE: '.$datacatalogazione?>
+                    </li>
+                    <li>
+                        <?php echo 'SEZIONE: '.$sezione?>
+                    </li>
+                    <li>
+                        <?php echo 'ANNO DI INIZIO USO: '.$annoiniziouso?>
+                    </li>
+                    <li>
+                        <?php echo 'ANNO DI FINE USO: '.$annofineuso?>
+                    </li>
+                    <li>
+                        <?php echo 'STATO: '.$stato?>
+                    </li>
+                    <li>
+                        <?php echo 'TIPO ACQUISIZIONE: '.$tipoacquisizione?>
+                    </li>
+                    <li>
+                        <?php echo 'QUANTITA: '.$quantita?>
+                    </li>
+                    <li>
+                        <?php echo 'NOME AUTORE: '.$nomeautore?>
+                    </li>
+                    <li>
+                        <?php echo 'ANNO DI NASCITA AUTORE: '.$annonascita?>
+                    </li>
+                    <li>
+                        <?php echo 'ANNO DI MORTE AUTORE: '.$annomorte?>
+                    </li>
+                    <li>
+                        <?php echo 'MATERIALI: ';
+                            foreach ($materiali as $i)
+                            {
+                                echo $i.' ';
+                            }?>
+                    </li>
+                    <li>
+                        <?php echo 'MEDIA: ';
+                            foreach ($media as $i)
+                            {
+                                echo $i.' ';
+                            }?>
+                    </li>
+                    <li>
+                        <?php echo 'MISURE: ';
+                            foreach ($misure as $i)
+                            {
+                                echo $i.' ';
+                            }?>
+                    </li>
+                    <li>
+                        <?php echo 'NUMERO PARTI: '.$nparti?>
+                    </li>
+                </ul>  
+            </div>
+            <div class="col-lg-8 bg-primary p-2 text-white bg-opacity-75">
+                <ul>
+                    <li>
+                        <?php echo 'DEFINIZIONE: '.$definizione?>
+                    </li>
+                    <li>
+                        <?php echo 'DENOMINAZIONE STORICA: '.$denominazionestorica?>
+                    </li>
+                    <li>
+                        <?php echo 'DESCRIZIONE: '.$descrizione?>
+                    </li>
+                    <li>
+                        <?php echo 'MODO USO: '.$modouso?>
+                    </li>
+                    <li>
+                        <?php echo 'SCOPO: '.$scopo?>
+                    </li>
+                    <li>
+                        <?php echo 'OSSERVAZIONI: '.$osservazioni?>
+                    </li>
+                    <li>
+                        <?php echo 'DIDASCALIA (ITA): '.$didascaliaita?>
+                    </li>
+                    <li>
+                        <?php echo 'DIDASCALIA (ENG): '.$didascaliaeng?>
+                    </li>
+                </ul>
+            </div>
         </div>
+    </div>
+      
+        
 </body>
 </html>
