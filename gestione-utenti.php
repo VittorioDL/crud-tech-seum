@@ -42,7 +42,7 @@ include 'connessione.php';
     <div class="container">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta utenti -->
-            <a href="inserimento-utente.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi utente</a>
+            <a href="inserimento-utenti.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi utente</a>
         </div>
     </div>
 
@@ -81,8 +81,8 @@ include 'connessione.php';
                         <td>' . $password . '</td>
                         <td>' . $permessi . '</td>
                         <td>
-                            <a href="modifica-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-primary">Modifica</a>
-                            <a href="cancella-reperto.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="modifica-utenti.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-primary">Modifica</a>
+                            <a href="cancella-utenti.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-danger">Cancella</a>
                         </td>
                         </tr>';
                     }
