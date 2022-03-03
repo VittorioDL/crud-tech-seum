@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Aggiunta reperto</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
 </head>
 <?php
 include 'connect.php';
 ?>
 <body>
+<div class="container py-5">
+    <div class="d-flex justify-content-between">
+    <h1>Aggiungi il reperto</h1>
+    </div>
+</div>
+<div class="container"> 
+        <?php
+            session_start();
+            $permessi = $_SESSION['permessi'];
+
+            if($permessi==0)
+            {
+                echo '<a href="home.php" class="text-light text-decoration-none btn btn-primary my-5">Home</a>';
+            }
+            else if($permessi==1)
+            {
+                echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-primary my-5">Home</a>';
+            }
+        ?>
+</div>
 <form action='inserimento-database.php' method='post'>
 
     <input name="nome" type="text" class="form-control" placeholder="Nome reperto"><br><br>
