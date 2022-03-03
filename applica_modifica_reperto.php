@@ -15,16 +15,13 @@
     $stato = $_GET['stato'];
     $osservazioni = $_GET['osservazioni'];
 
-    #$permessi = $_SESSION['permessi'];
     $permessi = 1;
 
-    $query = "INSERT INTO repertinuova ( datacatalogazione, nome, sezione, codrelativo, definizione, denominazionestorica, descrizione, modouso, annoiniziouso, annofineuso, scopo,stato, osservazioni)
-     VALUES ('$datacatalogazione', '$nome', '$sezione', $codrelativo, '$definizione', '$denominazionestorica', '$descrizione', '$modouso', '$annoiniziouso', '$annofineuso', '$scopo', $stato, '$osservazioni')";
-
+    $query = "UPDATE repertinuova SET (datacatalogazione = '$datacatalogazione', nome = '$nome', sezione = '$sezione', codrelativo = $codrelativo, definizione = '$definizione', denominazionestorica = '$denominazionestorica', descrizione = '$descrizione', modouso = '$modouso', annoiniziouso = '$annoiniziouso', annofineuso = '$annofineuso', scopo = '$scopo', stato = $stato, osservazioni = '$osservazioni')";
 
     echo $query;
     $result = mysqli_query($conn, $query) or die ("errore");
-    mysqli_close($con);
+    mysqli_close($conn);
 
     if ($permessi == 1)
         header("location:admin.php");
