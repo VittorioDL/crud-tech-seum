@@ -24,7 +24,7 @@
                 echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-primary my-5">Home</a>';
             }
         ?>
-    </div>
+         </div>
         
 
     <!-- Pulsante per modificare il database -->
