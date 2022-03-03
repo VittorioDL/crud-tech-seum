@@ -42,9 +42,14 @@ session_destroy();
                 </div>
 
                 <br><br>
+
                 <div class="container">
-                    <button type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                    <div class="d-flex justify-content-between">
+                        <!-- Bottone aggiunta utenti -->
+                        <a href="check-login.php" class="text-light text-decoration-none btn btn-success ms-0">SUBMIT</a>
+                    </div>
                 </div>
+
             </div>
     
         </div>
