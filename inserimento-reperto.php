@@ -29,7 +29,7 @@ include 'connect.php';
             ?>
     </div>
 
-    <div class="container py-5">
+    <div class="container py-1">
         <div class="d-flex justify-content-between">
             <h2 class="mx-auto">Aggiungi il reperto</h2>
         </div>
