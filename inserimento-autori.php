@@ -1,4 +1,5 @@
 <?php
+  include 'connect.php';
   session_start();
 
   $permission=$_SESSION['permessi'];
