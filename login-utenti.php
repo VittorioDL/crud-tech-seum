@@ -1,6 +1,7 @@
 <?php 
+session_start();
 session_destroy();
-session_start();?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,19 +10,46 @@ session_start();?>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Login Utenti</title>
 </head>
 <body>
+
+    <!-- Titolo -->
+    <div class="container py-5">
+        <div class="d-flex justify-content-between">
+            <h2 class="mx-auto">Login</h2>
+        </div>
+    </div>
+
     <form  method = 'post' action = 'check_login.php'>
-        <center> LOGIN<br><br></center>
 
-        <!--input dell'utente -->
-        <center><input name = 'utente' type = 'text' size = '25' maxlength = '21'  placeholder = "Username"></center> <br><br>
+        <div style="height: 150px;" align = "center">
+            <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
 
-        <!--input della password -->
-        <center><input name = 'password' type = 'password' size = '25' maxlength = '16' placeholder = "Password"></center> <br><br>
+                <div class="container">
 
-        <center><button type = 'submit'> SUBMIT </button></center> <br><br><!--bottone per l'accesso -->
+                    <!-- Input utente -->
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="utente" name="utente" placeholder="Username">
+                        <label for="floatingInput">Username</label>
+                    </div>
+
+                    <!-- Input utente -->
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                </div>
+
+                <br><br>
+                <div class="container">
+                    <button type="button" class="btn btn-primary btn-lg">SUBMIT</button>
+                </div>
+            </div>
+    
+        </div>
+    
+
     </form>
 </body>
 </html>
