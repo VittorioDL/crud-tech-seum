@@ -1,9 +1,8 @@
 <?php
-   include 'connessione.php';
+   include 'connect.php';
    session_start();
    $us=$_POST["utente"];
    $pa=$_POST["password"];
-   $_SESSION['logged_in']=TRUE;
 
 
    $query="SELECT * FROM utente
@@ -18,11 +17,11 @@
     $presente=FALSE; //variabile presenza utente
     $perm=0;        //variabile permessi utente
 
-    $ris=mysqli_query($con,$query) or die("Connesione fal");
+    $ris=mysqli_query($conn,$query) or die("Connesione fal");
     while($qu=mysqli_fetch_array($ris))
-           {
-            $presente=TRUE;//l'utente è presente
-           }
+    {
+      $presente=TRUE;//l'utente è presente
+    }
 
     if($presente==FALSE)
       {
@@ -37,10 +36,12 @@
                }
         if($perm==1)
            {
+             $_SESSION['logged_in']=TRUE;
              header('Location: home-admin.php');//se l'utente ha i permessi va alla pagina degli amministratori
            }
         else
            {
+            $_SESSION['logged_in']=TRUE;  
              header('Location: home.php');//se l'utente non ha i permessi va alla pagina degli utenti
            }
       }
