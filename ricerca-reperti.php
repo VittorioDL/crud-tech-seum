@@ -12,6 +12,10 @@
     <div class="container"> 
         <?php
             session_start();
+            if(!isset($_SESSION['logged_in'])){
+                header("Location: login-utenti.php"); 
+            }
+
             $permessi = $_SESSION['permessi'];
             
             if($permessi==0)
