@@ -31,7 +31,7 @@
 
     <!-- Risultato ricerca -->
     <div class="container">
-        <table class="table text-center">
+        <table class="table text-center table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
