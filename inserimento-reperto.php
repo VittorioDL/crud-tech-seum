@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-
+<?php
+include 'connect.php';
+?>
 <body>
 <form action='inserimento-database.php' method='post'>
 
