@@ -5,8 +5,8 @@
   $pe=$_POST["permessi"];
 
 
-  $query="INSERT INTO utente VALUES(NULL,'$us','$pa','$pe')";
-  $ris=mysqli_query($con,$query) or die($query);
+  $query="INSERT INTO utenti VALUES(NULL,'$us','$pa','$pe')";
+  $ris=mysqli_query($conn,$query) or die($query);
   header('Location: gestione-utenti.php');
 
 
