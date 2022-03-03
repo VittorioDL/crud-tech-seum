@@ -20,11 +20,11 @@ include 'connect.php';
 
                 if($permessi==0)
                 {
-                    echo '<a href="home.php" class="text-light text-decoration-none btn btn-secondary">Annulla</a>';
+                    echo '<a href="home.php" class="text-light text-decoration-none btn btn-secondary my-5">Annulla</a>';
                 }
                 else if($permessi==1)
                 {
-                    echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-secondary">Annulla</a>';
+                    echo '<a href="home-admin.php" class="text-light text-decoration-none btn btn-secondary my-5">Annulla</a>';
                 }
             ?>
     </div>
