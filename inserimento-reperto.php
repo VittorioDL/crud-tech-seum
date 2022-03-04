@@ -1,19 +1,29 @@
 <!DOCTYPE html>
+
+<?php
+include 'connect.php';
+session_start();
+if(!isset($_SESSION['logged_in'])){
+    header("Location: login-utenti.php"); 
+}
+?>
+
+
 <html lang="en">
 <head>
+    <title>Aggiunta reperto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aggiunta reperto</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         p{text-align:right}
     </style>
 </head>
-
-<?php
-include 'connect.php';
-?>
 
 <body>
     <div class="container bg-light p-2  bg-opacity-75"> 
@@ -125,7 +135,7 @@ include 'connect.php';
                                 echo '<option value=' . $row['codautore'] . '>' . $row['nomeautore'] . '</option>';
                             }
             		    ?>
-    			        </select><br><br>
+    			        </select>&nbsp; <a href="gestione-autori.php"><span class="glyphicon glyphicon-menu-hamburger"></span></a></button>
                     </li>
                 </ul>
             </div>
