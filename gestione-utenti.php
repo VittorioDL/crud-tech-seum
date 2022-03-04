@@ -1,5 +1,10 @@
 <?php
-include 'connessione.php';
+include 'connect.php';
+
+session_start();
+if(!isset($_SESSION['logged_in'])){
+    header("Location: login-utenti.php"); 
+}
 ?>
 
 <!DOCTYPE html>
@@ -23,30 +28,8 @@ include 'connessione.php';
     </div>
 
     <!-- Pulsante per tornare alla home -->
-    <div class="container">
-        <?php 
-            session_start();
-            #if(!isset($_SESSION['logged_in'])){
-            #   header("Location: login-utenti.php");
-            #}
-
-            $permessi = $_SESSION['permessi'];
-
-            if($permessi == 0)
-            {
-                echo '<a href = "home.php" class = "text-light text-decoration-none btn btn-primary my-5">Home</a>';
-            }
-            else if($permessi == 1)
-            {
-                echo '<a href = "home-admin.php" class = "text-light text-decoration-none btn btn-primary my-5">Home</a>';
-            }
-        ?>    
-    </div>
-
-    <!-- Pulsante per tornare alla home -->
     <div class="container"> 
         <?php
-            session_start();
             $permessi = $_SESSION['permessi'];
 
             if($permessi==0)
@@ -63,7 +46,7 @@ include 'connessione.php';
     <div class="container">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta utenti -->
-            <a href="inserimento-utenti.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi utente</a>
+            <a href="inserimento-utente.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi utente</a>
         </div>
     </div>
 
@@ -81,12 +64,12 @@ include 'connessione.php';
             </thead>
             <tbody>
                 <?php
-                $query = "select * from utenti";
+                $query = "select * from utente";
                 $result = mysqli_query($conn, $query);
                 if ($result) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['codutente'];
-                        $utente = $row['utente'];
+                        $utente = $row['nome'];
                         $password = $row['password'];
                         $permessi = $row['permessi'];
 
@@ -102,9 +85,10 @@ include 'connessione.php';
                         <td>' . $password . '</td>
                         <td>' . $permessi . '</td>
                         <td>
-                            <a href="modifica-utenti.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-primary">Modifica</a>
-                            <a href="cancella-utenti.php?id=' . $id . ' " class="text-light text-decoration-none btn btn-danger">Cancella</a>
-                        </td>
+                            <a href="modifica-utenti.php?id='.$id.'" class="text-light text-decoration-none btn btn-primary">Modifica</a>';?>
+                            <a href="cancella-utenti.php?id=<?php echo $id?>" onclick="return confirm('Cancellare utente?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                        <?php
+                        echo'</td>
                         </tr>';
                     }
                 }
