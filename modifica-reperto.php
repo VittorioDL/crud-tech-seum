@@ -12,7 +12,7 @@ if(!isset($_SESSION['logged_in'])){
 
 <html lang="en">
 <head>
-    <title>Aggiunta reperto</title>
+    <title>Modifica reperto</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@ if(!isset($_SESSION['logged_in'])){
 <body>
     <div class="container py-5">
         <div class="d-flex justify-content-between">
-            <h2 class="mx-auto">Aggiungi il reperto</h2>
+            <h2 class="mx-auto">Modifica il reperto selezionato</h2>
         </div>
     </div>
 
@@ -52,7 +52,7 @@ if(!isset($_SESSION['logged_in'])){
             ?>
     </div>
 <div class="container-fluid">
-<form action='inserimento-database.php' method='post'>
+<form action='modifica-database.php' method='post'>
     
 <div class="container-fluid">
         <div class="row">
@@ -146,27 +146,27 @@ if(!isset($_SESSION['logged_in'])){
                 <ul>
                     <div class="col text-black bg-opacity-50">
                         <li>
-                        <p><textarea name="definizione" type="text" class="form-control" placeholder="Definizione reperto" rows="3"></textarea><br><br></p>
+                        <p><textarea name="definizione" type="text" class="form-control" placeholder="Definizione reperto" rows="5"></textarea><br><br></p>
                         </li>
                     </div><br>
                     <div class="col text-black bg-opacity-50">
                         <li>
-                        <p><textarea name="descrizione" type="text" class="form-control" placeholder="Descrizione reperto" rows="3"></textarea><br><br></p>
+                        <p><textarea name="descrizione" type="text" class="form-control" placeholder="Descrizione reperto" rows="5"></textarea><br><br></p>
                         </li>
                     </div><br>
                     <div class="col text-black bg-opacity-50">
                         <li>
-                        <p><textarea name="modo_uso" type="text" class="form-control" placeholder="Modo d'uso" rows="3"></textarea><br><br></p>
+                        <p><textarea name="modo_uso" type="text" class="form-control" placeholder="Modo d'uso" rows="5"></textarea><br><br></p>
                         </li>
                     </div><br>
                     <div class="col text-black bg-opacity-50">
                         <li>
-                        <p><textarea name="scopo" type="text" class="form-control" placeholder="Scopo del reperto" rows="3"></textarea><br><br></p>
+                        <p><textarea name="scopo" type="text" class="form-control" placeholder="Scopo del reperto" rows="5"></textarea><br><br></p>
                         </li>
                     </div><br>
                     <div class="col text-black bg-opacity-50">
                         <li>
-                        <p><textarea name="osservazioni" type="text" class="form-control" placeholder="Osservazioni reperto" rows="3"></textarea><br><br></p>
+                        <p><textarea name="osservazioni" type="text" class="form-control" placeholder="Osservazioni reperto" rows="5"></textarea><br><br></p>
                         </li>
                     </div><br>
                 </ul>
@@ -176,7 +176,7 @@ if(!isset($_SESSION['logged_in'])){
 </form>
 </div>
     <div class="container"> 
-    <p class="text-center"><button class="btn btn-success"> <a href="inserimento-database.php" class="text-light text-decoration-none">Aggiungi</a></button></p>
+    <p class="text-center"><button class="btn btn-success"> <a href="modifica-database.php" class="text-light text-decoration-none">Conferma</a></button></p>
     </div>
 </body>
 </html>
