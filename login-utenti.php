@@ -1,6 +1,5 @@
 <?php 
 session_start();
-session_destroy();
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +39,25 @@ session_destroy();
                         <label for="floatingPassword">Password</label>
                     </div>
                 </div>
+                <?php
+                if(isset($_SESSION['accesso']))
+                {
+
+                    if($_SESSION["accesso"] == 1)
+                    {
+                        echo "<p style='color:#dc3545; font-weight:500; font-size:21px'>Utente o password errati</p>";
+                    }
+                    session_destroy();
+                }
+                ?>
 
                 <br><br>
 
-                <div class="container" align = "center" >
-                    <div class="d-flex justify-content-between">
+                <div class="container text-center" align = "center" >
+                    
                         <!-- Bottone aggiunta utenti -->
                         <button type = "submit" class = "text-light text-decoration-none btn btn-success" > SUBMIT</button>
-                    </div>
+                
                 </div>
                 <br>
 
