@@ -2,6 +2,7 @@
 
 <?php
 include 'connect.php';
+
 session_start();
 if(!isset($_SESSION['logged_in'])){
     header("Location: login-utenti.php"); 
@@ -21,7 +22,7 @@ if(!isset($_SESSION['logged_in'])){
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
-        p{text-align:right}
+        p{text-align:left}
         ul {
             list-style-type: none;
         }
@@ -29,7 +30,13 @@ if(!isset($_SESSION['logged_in'])){
 </head>
 
 <body>
-    <div class="container bg-light p-2  bg-opacity-75"> 
+    <div class="container py-5">
+        <div class="d-flex justify-content-between">
+            <h2 class="mx-auto">Aggiungi il reperto</h2>
+        </div>
+    </div>
+
+    <div class="container"> 
             <?php
                 session_start();
                 $permessi = $_SESSION['permessi'];
@@ -44,19 +51,12 @@ if(!isset($_SESSION['logged_in'])){
                 }
             ?>
     </div>
-
-    <div class="container py-1 bg-light p-2 text-black bg-opacity-75">
-        <div class="d-flex justify-content-between">
-            <h2 class="mx-auto">Aggiungi il reperto</h2>
-        </div>
-    </div>
-
-
+<div class="container-fluid">
 <form action='inserimento-database.php' method='post'>
     
-    <div class="container-fluid">
+<div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 bg-success p-2 text-white bg-opacity-75">
+            <div class="col-lg-4 bg-success p-2 text-black bg-opacity-75">
                 <ul>
                     <li>
                         <input name="nome" type="text" class="col-auto my-2" placeholder="Nome reperto"><br><br>
@@ -142,30 +142,40 @@ if(!isset($_SESSION['logged_in'])){
                     </li>
                 </ul>
             </div>
-            <div class="col-lg-8 bg-light p-2 text-white bg-opacity-75">
-		        <ul>
-                    <li>
-                        <p><textarea name="definizione" type="text" class="col-auto my-2" placeholder="Definizione reperto" rows="3"></textarea><br><br></p>
-                    </li>
-                    <li>
-                        <p><textarea name="descrizione" type="text" class="col-auto my-2" placeholder="Descrizione reperto" rows="3"></textarea><br><br></p>
-                    </li>
-                    <li>
-                        <p><textarea name="modo_uso" type="text" class="col-auto my-2" placeholder="Modo d'uso" rows="3"></textarea><br><br></p>
-                    </li>
-                    <li>
-                        <p><textarea name="scopo" type="text" class="col-auto my-2" placeholder="Scopo del reperto" rows="3"></textarea><br><br></p>
-                    </li>
-                    <li>
-                        <p><textarea name="osservazioni" type="text" class="col-auto my-2" placeholder="Osservazioni reperto" rows="3"></textarea><br><br></p>
-                    </li>
-	
-		        </ul>
+            <div class="col-lg-8 bg-secondary p-2 text-white bg-opacity-50">
+                <ul>
+                    <div class="col text-black bg-opacity-50">
+                        <li>
+                        <p><textarea name="definizione" type="text" class="form-control" placeholder="Definizione reperto" rows="3"></textarea><br><br></p>
+                        </li>
+                    </div><br>
+                    <div class="col text-black bg-opacity-50">
+                        <li>
+                        <p><textarea name="descrizione" type="text" class="form-control" placeholder="Descrizione reperto" rows="3"></textarea><br><br></p>
+                        </li>
+                    </div><br>
+                    <div class="col text-black bg-opacity-50">
+                        <li>
+                        <p><textarea name="modo_uso" type="text" class="form-control" placeholder="Modo d'uso" rows="3"></textarea><br><br></p>
+                        </li>
+                    </div><br>
+                    <div class="col text-black bg-opacity-50">
+                        <li>
+                        <p><textarea name="scopo" type="text" class="form-control" placeholder="Scopo del reperto" rows="3"></textarea><br><br></p>
+                        </li>
+                    </div><br>
+                    <div class="col text-black bg-opacity-50">
+                        <li>
+                        <p><textarea name="osservazioni" type="text" class="form-control" placeholder="Osservazioni reperto" rows="3"></textarea><br><br></p>
+                        </li>
+                    </div><br>
+                </ul>
             </div>
         </div>
     </div> 
 </form>
-    <div class="container bg-light p-2  bg-opacity-75"> 
+</div>
+    <div class="container"> 
     <p class="text-center"><button class="btn btn-success"> <a href="inserimento-database.php" class="text-light text-decoration-none">Aggiungi</a></button></p>
     </div>
 </body>
