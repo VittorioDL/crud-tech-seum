@@ -17,7 +17,7 @@ if(!isset($_SESSION['logged_in'])){
 <body>
 	<br><br><center><b><p class='fs-1'> Aggiungi utente </p></b></center><br><br><br>
 
-	<form  action='insert-utente.php' method='POST'>
+	<form  action='applica-inserimento-utente.php' method='POST'>
 		<div style="height: 150px;" align = "center">
             <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
 
