@@ -31,7 +31,7 @@
         //query compostoda
         $query3="SELECT * FROM compostoda WHERE codassoluto=$codassoluto";
         $ris3=mysqli_query($conn,$query3) or die("Error");
-        //query didascalie (ita/eng)
+        //query didascalie (ita-eng)
         $query4="SELECT * FROM didascalie WHERE codassoluto=$codassoluto AND lingua='IT'";
         $ris4=mysqli_query($conn,$query4) or die("Error");
         $row4=mysqli_fetch_assoc($ris4);
@@ -51,47 +51,63 @@
 
         //Dettagli corti
         $nome=$row['nome'];
-        $datacatalogazione=$row['datacatalogazione'];
-        switch($row['sezione']) 
-        {
-            case "E":
-                $sezione="Elettronica";
-                break;
-            case "I":
-                $sezione="Informatica";
-                break;
-            case "M":
-                $sezione="Meccanica";
-                break;
-            case "S":
-                $sezione="Scienze";
-                break;
+        if(isset($row['datacatalogazione'])) $datacatalogazione=$row['datacatalogazione'];
+        else $datacatalogazione="Mancante";
+        if(isset($row['sezione']))
+        {   
+            switch($row['sezione']) 
+            {
+                case "E":
+                    $sezione="Elettronica";
+                    break;
+                case "I":
+                    $sezione="Informatica";
+                    break;
+                case "M":
+                    $sezione="Meccanica";
+                    break;
+                case "S":
+                    $sezione="Scienze";
+                    break;
+            }
         }
-        $annoiniziouso=$row['annoiniziouso'];
-        $annofineuso=$row['annofineuso'];
-        $stato=$row['stato'];
-        switch ($row1['tipoacquisizione']) 
+        else $sezione="Mancante";
+        if($row['annoiniziouso']==0 | $row['annoiniziouso']==-1) $annoiniziouso="Mancante";
+        else $annoiniziouso=$row['annoiniziouso'];
+        if($row['annofineuso']==0 | $row['annofineuso']==-1) $annofineuso="Mancante";
+        else $annofineuso=$row['annofineuso'];
+        if(isset($row['stato'])) $stato=$row['stato'];
+        else $stato="Mancante";
+        $tipoacquisizione="Mancante";
+        if(isset($row1['tipoacquisizione']))
         {
-            case "D":
-                $tipoacquisizione="Donazione";
-                break;
-            case "A":
-                $tipoacquisizione="Acquisto";
-                break;
-            case "R":
-                $tipoacquisizione="Rubato";
-                break;
-            case "C":
-                $tipoacquisizione="Costruito";
-                break;
-            case "O":
-                $tipoacquisizione="Altro tipo di acquisizione";
-                break;
+            switch ($row1['tipoacquisizione']) 
+            {
+                case "D":
+                    $tipoacquisizione="Donazione";
+                    break;
+                case "A":
+                    $tipoacquisizione="Acquisto";
+                    break;
+                case "R":
+                    $tipoacquisizione="Rubato";
+                    break;
+                case "C":
+                    $tipoacquisizione="Costruito";
+                    break;
+                case "O":
+                    $tipoacquisizione="Altro tipo di acquisizione";
+                    break;
+            }
         }
-        $quantita=$row1['quantita'];
-        $nomeautore=$row2['nomeautore'];
-        $annonascita=$row2['annonascita'];
-        $annomorte=$row2['annofine'];
+        if(isset($row1['quantita'])) $quantita=$row1['quantita'];
+        else $quantita="Mancante";
+        if(isset($row2['nomeautore'])) $nomeautore=$row2['nomeautore'];
+        else $nomeautore="Mancante";
+        if(!isset($row2['annonascita'])) $annonascita="Mancante";
+        else $annonascita=$row2['annonascita'];
+        if(!isset($row2['annofine'])) $annomorte="Mancante";
+        else $annomorte=$row2['annofine'];
         $i=0;
         while($row3=mysqli_fetch_assoc($ris3))
         {
@@ -113,14 +129,22 @@
         $nparti=$row8['n'];
 
         //Dettagli lunghi
-        $definizione=$row['definizione'];
+        if(isset($row['definizione'])) $definizione=$row['definizione'];
+        else $definizione="Mancante";
         $denominazionestorica=$row['denominazionestorica'];
-        $descrizione=$row['descrizione'];
+        if(empty($denominazionestorica)) $denominazionestorica="Mancante";
+        if(isset($row['descrizione'])) $descrizione=$row['descrizione'];
+        else $descrizione="Mancante";
         $modouso=$row['modouso'];
-        $scopo=$row['scopo'];
+        if(empty($modouso)) $modouso="Mancante";
+        if(isset($row['scopo'])) $scopo=$row['scopo'];
+        else $scopo="Mancante";
         $osservazioni=$row['osservazioni'];
-        $didascaliaita=$row4['didascalia'];
-        $didascaliaeng=$row5['didascalia'];
+        if(empty($osservazioni)) $osservazioni="Mancante";
+        if(isset($row4['didascalia'])) $didascaliaita=$row4['didascalia'];
+        else $didascaliaita="Mancante";
+        if(isset($row5['didascalia'])) $didascaliaeng=$row5['didascalia'];
+        else $didascaliaeng="Mancante";
     ?>
     <!-- Nome reperto -->
     <div class="container py-5">
@@ -145,93 +169,127 @@
     </div>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4 bg-success p-2 text-white bg-opacity-75">
+            <div class="col-lg-4 bg-success p-2 text-black bg-opacity-75">
                 <ul>
                     <li>
-                        <?php echo 'ID: '.$codassoluto?>
+                        <?php echo '<b>'.'ID: '.'</b>.'.$codassoluto?>
                     </li>
                     <li>
-                        <?php echo 'DATA CATALOGAZIONE: '.$datacatalogazione?>
+                        <?php echo '<b>'.'DATA CATALOGAZIONE: '.'</b>'.$datacatalogazione?>
                     </li>
                     <li>
-                        <?php echo 'SEZIONE: '.$sezione?>
+                        <?php echo '<b>'.'SEZIONE: '.'</b>'.$sezione?>
                     </li>
                     <li>
-                        <?php echo 'ANNO DI INIZIO USO: '.$annoiniziouso?>
+                        <?php echo '<b>'.'ANNO DI INIZIO USO: '.'</b>'.$annoiniziouso?>
                     </li>
                     <li>
-                        <?php echo 'ANNO DI FINE USO: '.$annofineuso?>
+                        <?php echo '<b>'.'ANNO DI FINE USO: '.'</b>'.$annofineuso?>
                     </li>
                     <li>
-                        <?php echo 'STATO: '.$stato?>
+                        <?php echo '<b>'.'STATO: '.'</b>'.$stato?>
                     </li>
                     <li>
-                        <?php echo 'TIPO ACQUISIZIONE: '.$tipoacquisizione?>
+                        <?php echo '<b>'.'TIPO ACQUISIZIONE: '.'</b>'.$tipoacquisizione?>
                     </li>
                     <li>
-                        <?php echo 'QUANTITA: '.$quantita?>
+                        <?php echo '<b>'.'QUANTITA: '.'</b>'.$quantita?>
                     </li>
                     <li>
-                        <?php echo 'NOME AUTORE: '.$nomeautore?>
+                        <?php echo '<b>'.'NOME AUTORE: '.'</b>'.$nomeautore?>
                     </li>
                     <li>
-                        <?php echo 'ANNO DI NASCITA AUTORE: '.$annonascita?>
+                        <?php echo '<b>'.'ANNO DI NASCITA AUTORE: '.'</b>'.$annonascita?>
                     </li>
                     <li>
-                        <?php echo 'ANNO DI MORTE AUTORE: '.$annomorte?>
+                        <?php echo '<b>'.'ANNO DI MORTE AUTORE: '.'</b>'.$annomorte?>
                     </li>
                     <li>
-                        <?php echo 'MATERIALI: ';
-                            foreach ($materiali as $i)
+                        <?php if(empty($materiali)) echo '<b>'.'MATERIALI: '.'</b>'.': Mancante';
+                            else
                             {
-                                echo $i.' ';
+                                echo '<b>'.'MATERIALI: '.'</b>';
+                                foreach ($materiali as $i)
+                                {
+                                    echo $i.' ';
+                                }
                             }?>
                     </li>
                     <li>
-                        <?php echo 'MEDIA: ';
-                            foreach ($media as $i)
+                        <?php if(empty($media)) echo '<b>'.'MEDIA: '.'</b>'.': Mancante';
+                            else
                             {
-                                echo $i.' ';
+                                echo '<b>'.'MEDIA: '.'</b>';
+                                foreach ($media as $i)
+                                {
+                                    echo $i.' ';
+                                }
                             }?>
                     </li>
                     <li>
-                        <?php echo 'MISURE: ';
-                            foreach ($misure as $i)
+                        <?php if(empty($misure)) echo '<b>'.'MISURE: '.'</b>'.': Mancante';
+                            else
                             {
-                                echo $i.' ';
+                                echo '<b>'.'MISURE: '.'</b>';
+                                foreach ($misure as $i)
+                                {
+                                    echo $i.' ';
+                                }
                             }?>
                     </li>
                     <li>
-                        <?php echo 'NUMERO PARTI: '.$nparti?>
+                        <?php echo '<b>'.'NUMERO PARTI: '.'</b>'.$nparti?>
                     </li>
                 </ul>  
             </div>
-            <div class="col-lg-8 bg-primary p-2 text-white bg-opacity-75">
+            <div class="col-lg-8 bg-secondary p-2 text-white bg-opacity-50">
                 <ul>
-                    <li>
-                        <?php echo 'DEFINIZIONE: '.$definizione?>
-                    </li>
-                    <li>
-                        <?php echo 'DENOMINAZIONE STORICA: '.$denominazionestorica?>
-                    </li>
-                    <li>
-                        <?php echo 'DESCRIZIONE: '.$descrizione?>
-                    </li>
-                    <li>
-                        <?php echo 'MODO USO: '.$modouso?>
-                    </li>
-                    <li>
-                        <?php echo 'SCOPO: '.$scopo?>
-                    </li>
-                    <li>
-                        <?php echo 'OSSERVAZIONI: '.$osservazioni?>
-                    </li>
-                    <li>
-                        <?php echo 'DIDASCALIA (ITA): '.$didascaliaita?>
-                    </li>
-                    <li>
-                        <?php echo 'DIDASCALIA (ENG): '.$didascaliaeng?>
-                    </li>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'DEFINIZIONE'?></b><br>
+                            <?php echo ''.$definizione?>
+                        </li>
+                    </div><br>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'DENOMINAZIONE STORICA'?></b><br>
+                            <?php echo ''.$denominazionestorica?>
+                        </li>
+                    </div><br>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'DESCRIZIONE'?></b><br>
+                            <?php echo ''.$descrizione?>
+                        </li>
+                    </div><br>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'MODO USO'?></b><br>
+                            <?php echo ''.$modouso?>
+                        </li>
+                    </div><br>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'SCOPO'?></b><br>
+                            <?php echo ''.$scopo?>
+                        </li>
+                    </div><br>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'OSSERVAZIONI'?></b><br>
+                            <?php echo ''.$osservazioni?>
+                        </li>
+                    </div><br>
+                    <div class="col bg-warning p-2 text-black bg-opacity-50">
+                        <li>
+                            <b><?php echo 'DIDASCALIA (ITA)'?></b><br>
+                            <?php echo ''.$didascaliaita?>
+                        </li><br>
+                        <li>
+                            <b><?php echo 'DIDASCALIA (ENG)'?></b><br>
+                            <?php echo ''.$didascaliaeng?>
+                        </li>
+                    </div>
                 </ul>
             </div>
         </div>
