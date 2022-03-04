@@ -52,7 +52,7 @@ $rec=mysqli_fetch_array($risp);
                             <div class="d-flex justify-content-between">
                                 <!-- Bottone modifica autore -->
                                 <button class="text-light text-decoration-none btn btn-success my-3">Modifica autore</button>
-                                <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+                                <a href="gestione-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
                             </div>
                         </div>   
                     </div>

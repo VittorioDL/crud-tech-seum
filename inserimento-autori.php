@@ -46,7 +46,7 @@ if(!isset($_SESSION['logged_in'])){
                             <div class="d-flex justify-content-between">
                                 <!-- Bottone aggiunta autore -->
                                 <button class="text-light text-decoration-none btn btn-success my-3">Aggiungi autore</button>
-                                <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+                                <a href="gestione-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
                             </div>
                         </div>   
                     </div>
