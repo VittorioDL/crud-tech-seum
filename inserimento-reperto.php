@@ -22,6 +22,9 @@ if(!isset($_SESSION['logged_in'])){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         p{text-align:right}
+        ul {
+            list-style-type: none;
+        }
     </style>
 </head>
 
