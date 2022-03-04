@@ -177,6 +177,6 @@ if(!isset($_SESSION['logged_in'])){
 </div>
     <div class="container"> 
     <p class="text-center"><button class="btn btn-success"> <a href="inserimento-database.php" class="text-light text-decoration-none">Aggiungi</a></button></p>
-    </div>
+</div>
 </body>
 </html>
