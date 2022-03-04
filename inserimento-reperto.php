@@ -135,7 +135,7 @@ if(!isset($_SESSION['logged_in'])){
                                 echo '<option value=' . $row['codautore'] . '>' . $row['nomeautore'] . '</option>';
                             }
             		    ?>
-    			        </select>&nbsp; <a href="gestione-autori.php"><span class="glyphicon glyphicon-menu-hamburger"></span></a></button>
+    			        </select>&nbsp;<a href="gestione-autori.php"><span class="glyphicon glyphicon-menu-hamburger"></span></a></button>
                     </li>
                 </ul>
             </div>
