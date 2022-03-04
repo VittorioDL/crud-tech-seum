@@ -31,7 +31,7 @@
         //query compostoda
         $query3="SELECT * FROM compostoda WHERE codassoluto=$codassoluto";
         $ris3=mysqli_query($conn,$query3) or die("Error");
-        //query didascalie (ita/eng)
+        //query didascalie (ita-eng)
         $query4="SELECT * FROM didascalie WHERE codassoluto=$codassoluto AND lingua='IT'";
         $ris4=mysqli_query($conn,$query4) or die("Error");
         $row4=mysqli_fetch_assoc($ris4);
