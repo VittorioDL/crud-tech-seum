@@ -15,15 +15,43 @@ if(!isset($_SESSION['logged_in'])){
     <title>Inserimento autore</title>
 </head>
 <body>
-
-    <center>AGGIUNGI AUTORE</center><br>
     
     <form method="GET" action="applica-inserimento-autori.php">
-        
-            <center><input type="text" id="nome_a" name="nome_a" autocomplete="off" placeholder="Nome autore"></center><br>
-            <center><input type="number" min=1800 id="anno_n" name="anno_n" maxlenght="4" autocomplete="off" placeholder="Anno di nascita"></center><br>
-            <center><input type="number" min=1800 id="anno_f" name="anno_f" maxleght="4" autocomplete="off" placeholder="Anno di fine produzione"></center><br>
-            <center><button type="submit" class="btn btn-primary">SUBMIT</center>
+            <div style="height: 150px;" align = "center" class="mt-3">
+                <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
+                    <div class="container mt-3">
+
+                        <center>AGGIUNGI AUTORE</center><br>
+                        <!-- Input nome autore -->
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="nome_a" placeholder="Nome autore">
+                            <label for="floatingInput">Nome autore</label>
+                        </div>
+
+                        <!-- Input anno inizio -->
+                        <div class="form-floating my-5">
+                            <input type="number" class="form-control" name="anno_n" min = 1800 placeholder="Anno inizio">
+                            <label for="floatingInput">Anno inizio</label>
+                        </div>
+
+                        <!-- Input anno fine -->
+                        <div class="form-floating">
+                            <input type="number" class="form-control" name="anno_f" min = 1800 placeholder="Anno fine">
+                            <label for="floatingInput">Anno fine</label>
+                        </div>
+
+                        <br><br>
+
+                        <div class="container mb-3">
+                            <div class="d-flex justify-content-between">
+                                <!-- Bottone aggiunta autore -->
+                                <button class="text-light text-decoration-none btn btn-success my-3">Aggiungi autore</button>
+                                <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+                            </div>
+                        </div>   
+                    </div>
+                </div>
+            </div>    
     </form>
 
 </body>
