@@ -26,7 +26,7 @@ session_destroy();
         <div style="height: 150px;" align = "center">
             <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
 
-                <div class="container">
+                <div class="container py-5">
 
                     <!-- Input utente -->
                     <div class="form-floating mb-3">
@@ -43,12 +43,15 @@ session_destroy();
 
                 <br><br>
 
-                <div class="container">
+                <div class="container" align = "center" >
                     <div class="d-flex justify-content-between">
                         <!-- Bottone aggiunta utenti -->
-                        <button class="text-light text-decoration-none btn btn-success ms-0">SUBMIT</button>
+                        <button type = "submit" class = "text-light text-decoration-none btn btn-success" > SUBMIT</button>
                     </div>
                 </div>
+                <br>
+
+                
 
             </div>
     
