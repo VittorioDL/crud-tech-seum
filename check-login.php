@@ -6,11 +6,11 @@
    $_SESSION['accesso']=0;
 
    $query="SELECT * FROM utente
-           WHERE utente='$us'
+           WHERE nome='$us'
            and password='$pa'"; //prima query per vedere se un utente esiste o no
 
     $query2="SELECT * FROM utente
-            WHERE utente='$us'
+            WHERE nome='$us'
             and password='$pa'
             and permessi='1'";//seconda query per vedere se l'utente ha i permessi o no
 
