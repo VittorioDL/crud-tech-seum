@@ -17,11 +17,19 @@ if(!isset($_SESSION['logged_in'])){
 <body>
     
     <form method="GET" action="applica-inserimento-autori.php">
+<<<<<<< HEAD
+        <br><center><b><p class="fs-1">Aggiungi autore</p></b></center><br>
+=======
+>>>>>>> 55211075fc224d55263956d70c5afcc48815e675
             <div style="height: 150px;" align = "center" class="mt-3">
                 <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
                     <div class="container mt-3">
 
+<<<<<<< HEAD
+                        
+=======
                         <center>AGGIUNGI AUTORE</center><br>
+>>>>>>> 55211075fc224d55263956d70c5afcc48815e675
                         <!-- Input nome autore -->
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="nome_a" placeholder="Nome autore">
@@ -46,7 +54,11 @@ if(!isset($_SESSION['logged_in'])){
                             <div class="d-flex justify-content-between">
                                 <!-- Bottone aggiunta autore -->
                                 <button class="text-light text-decoration-none btn btn-success my-3">Aggiungi autore</button>
+<<<<<<< HEAD
+                                <a href="applica-inserimento-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+=======
                                 <a href="gestione-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+>>>>>>> 55211075fc224d55263956d70c5afcc48815e675
                             </div>
                         </div>   
                     </div>
