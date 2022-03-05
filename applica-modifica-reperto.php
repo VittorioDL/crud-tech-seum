@@ -26,7 +26,7 @@
     mysqli_close($conn);
 
     if ($permessi == 1)
-        header("location:admin.php");
+        header("location:home-admin.php");
     else if($permessi == 0)
         header("location:home.php");
 

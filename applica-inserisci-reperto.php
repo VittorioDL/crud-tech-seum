@@ -1,5 +1,5 @@
 <?php
-    include("conn.php");
+    include("connessione.php");
 
     $data_catalogazione = $_GET['data_catalogazione'];
     $nome = $_GET['nome'];
@@ -22,11 +22,11 @@
 
 
     echo $query;
-    $result = mysqli_query($con, $query) or die ("errore");
-    mysqli_close($con);
+    $result = mysqli_query($conn, $query) or die ("errore");
+    mysqli_close($conn);
 
     if ($permessi == 1)
-        header("location:admin.php");
+        header("location:home-admin.php");
     else if($permessi == 0)
         header("location:home.php");
 
