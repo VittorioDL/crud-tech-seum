@@ -1,9 +1,9 @@
 <?php
-include 'connect.php';
+    include 'connessione.php';
 
-session_start();
-if(!isset($_SESSION['logged_in'])){
-    header("Location: login-utenti.php"); 
+    session_start();
+    if(!isset($_SESSION['logged_in'])){
+        header("Location: login-utenti.php"); 
 }
 ?>
 
@@ -85,8 +85,8 @@ if(!isset($_SESSION['logged_in'])){
                         <td>' . $password . '</td>
                         <td>' . $permessi . '</td>
                         <td>
-                            <a href="modifica-utenti.php?id='.$id.'" class="text-light text-decoration-none btn btn-primary">Modifica</a>';?>
-                            <a href="cancella-utenti.php?id=<?php echo $id?>" onclick="return confirm('Cancellare utente?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="modifica-utente.php?id='.$id.'" class="text-light text-decoration-none btn btn-primary">Modifica</a>';?>
+                            <a href="cancella-utente.php?id=<?php echo $id?>" onclick="return confirm('Cancellare utente?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
                         <?php
                         echo'</td>
                         </tr>';

@@ -17,14 +17,14 @@ if(!isset($_SESSION['logged_in'])){
 	<?php
 		$codutente=$_GET["id"];
 		include 'connessione.php';
-		$query= "SELECT * FROM utenti WHERE utenti.codutente=$codutente";
+		$query= "SELECT * FROM utente WHERE utente.codutente=$codutente";
 		$ris=mysqli_query($conn,$query);
 		$rec=mysqli_fetch_array($ris);
 
 
 		echo("<br><br><center><b><p class='fs-1'> Modifica utente </p></b></center><br><br><br>
 
-			<form  action='upd-utenti.php' method='POST'>
+			<form  action='applica-modifica-utente.php' method='POST'>
 
 				<div style='height: 150px;' align = 'center'>
 					<div class='h-auto d-inline-block' style='width: 360px; background-color: rgba(0,0,255,.1)'>
@@ -35,7 +35,7 @@ if(!isset($_SESSION['logged_in'])){
 							<div align='center'><input type='hidden'  name='idutente' value='$codutente'></div>
 							<!-- Input utente -->
 							<div class='form-floating mb-3'>
-								<input type='text' class='form-control' id='utente' name='utente' value='$rec[utente]' placeholder='Username'>
+								<input type='text' class='form-control' id='utente' name='utente' value='$rec[nome]' placeholder='Username'>
 								<label for='floatingInput'>Username</label>
 							</div>
 
