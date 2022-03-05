@@ -2,7 +2,7 @@
 include('conn.php');
 $id_reperto = $_GET['id'];
 
-$query = "DELETE FROM repertinuova WHERE codassoluto=0";
+$query = "DELETE FROM repertinuova WHERE codassoluto=$id_reperto";
 $result = mysqli_query($connection,$query) or die ("errore");
 mysqli_close($connection);
 

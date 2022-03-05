@@ -17,8 +17,7 @@
 
     $cod_assoluto = $_GET['cod_assoluto']
 
-    #$permessi = $_SESSION['permessi'];
-    $permessi = 1;
+    $permessi = $_SESSION['permessi'];
 
     $query = "UPDATE repertinuova SET (data_catalogazione = '$data_catalogazione', nome = '$nome', sezione = '$sezione', cod_relativo = $cod_relativo, definizione = '$definizione', denominazione_storica = '$denominazione_storica', descrizione = '$descrizione', modouso = '$modouso', anno_inizio_uso = '$anno_inizio_uso', anno_fine_uso = '$anno_fine_uso', scopo = '$scopo', stato = $stato, osservazioni = '$osservazioni') WHERE codassoluto = $cod_assoluto";
 
