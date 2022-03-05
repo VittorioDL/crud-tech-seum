@@ -31,7 +31,7 @@ if(!isset($_SESSION['logged_in'])){
     <div class="container my-5">
         <div class="d-flex justify-content-between">
             <!-- Bottone aggiunta reperti -->
-            <a href="inserimento-reperto.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi reperto</a>
+            <a href="applica-inserisci-reperto.php" class="text-light text-decoration-none btn btn-success ms-0">Aggiungi reperto</a>
             
             <!-- Bottone gestione utenti -->
             <a href="gestione-utenti.php" class="text-light text-decoration-none btn btn-success me-0">Gestione utenti</a>
@@ -164,7 +164,7 @@ if(!isset($_SESSION['logged_in'])){
                         <td>' . $stato . '</td>
                         <td>
                             <a href="modifica-reperto.php?id='.$id.'" class="text-light text-decoration-none btn btn-primary">Modifica</a>';?>
-                            <a href="cancella-reperto.php?id=<?php echo $id?>" onclick="return confirm('Cancellare il reperto?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="applica-cancella-reperto.php?id=<?php echo $id?>" onclick="return confirm('Cancellare il reperto?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
                             <?php echo '
                             <a href="visualizza-reperto.php?id='.$id.'" class="text-light text-decoration-none btn btn-info">Info</a>
                         </td>
