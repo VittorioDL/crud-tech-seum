@@ -22,7 +22,7 @@ if(!isset($_SESSION['logged_in'])){
 		$rec=mysqli_fetch_array($ris);
 
 
-		echo("<br><br><center><b><p class='fs-1'> Modifica utente </p></b></center><br><br><br>
+		echo("<br><br><center><b><p class='fs-1'> Modifica utente </p></b></center><br><br>
 
 			<form  action='applica-modifica-utente.php' method='POST'>
 
@@ -112,12 +112,14 @@ if(!isset($_SESSION['logged_in'])){
 			
 
 						echo("
-						<div class='container'>
-							<!-- Bottone conferma -->
-							<div><button type='submit' class='btn btn-primary'>Conferma</button></div>
-
-							<!-- Bottone annulla -->
-							<a href='gestione-utenti.php' class='text-light text-decoration-none btn btn-secondary my-3'>Annulla</a>
+						<div class='container mb-3'>
+							<div class='d-flex justifycontent-between'
+								<!-- Bottone conferma -->
+								<button type='submit' class='text-light text-decoration-none btn btn-success my-3'>Conferma</button>
+								&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+								<!-- Bottone annulla -->
+								<div><a href='gestione-utenti.php' class='text-light text-decoration-none btn btn-secondary my-3'>Annulla</a></div>
+							</div>
 						</div>
 					</div>
 				</div>
