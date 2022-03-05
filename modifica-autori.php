@@ -2,13 +2,14 @@
 include "connect.php";
 session_start();
 if(!isset($_SESSION['logged_in'])){
-    header("Location: login-utenti.php"); 
+    header("Location: login-utenti.php");
 }
 
 $codice_autore= $_GET['id'];
 $query="SELECT * FROM autore WHERE codautore=$codice_autore";
 $risp=mysqli_query($conn,$query);
 $rec=mysqli_fetch_array($risp);
+$_SESSION['cod_a']=$codice_autore;
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +22,7 @@ $rec=mysqli_fetch_array($risp);
     <title>Modifica autore</title>
 </head>
 <body>
-    
+
     <form method="POST" action="applica-modifica-autori.php">
             <div style="height: 150px;" align = "center" class="mt-3">
                 <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
@@ -54,10 +55,10 @@ $rec=mysqli_fetch_array($risp);
                                 <button class="text-light text-decoration-none btn btn-success my-3">Modifica autore</button>
                                 <a href="gestione-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
                             </div>
-                        </div>   
+                        </div>
                     </div>
                 </div>
-            </div>    
+            </div>
     </form>
 
 </body>
