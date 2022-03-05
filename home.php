@@ -160,7 +160,7 @@ if(!isset($_SESSION['logged_in'])){
                         <td>' . $stato . '</td>
                         <td>
                             <a href="modifica-reperto.php?id='.$id.'" class="text-light text-decoration-none btn btn-primary">Modifica</a>';?>
-                            <a href="cancella-reperto.php?id=<?php echo $id?>" onclick="return confirm('Cancellare il reperto?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
+                            <a href="applica-cancella-reperto.php?id=<?php echo $id?>" onclick="return confirm('Cancellare il reperto?')" class="text-light text-decoration-none btn btn-danger">Cancella</a>
                             <?php echo '
                             <a href="visualizza-reperto.php?id='.$id.'" class="text-light text-decoration-none btn btn-info">Info</a>
                         </td>

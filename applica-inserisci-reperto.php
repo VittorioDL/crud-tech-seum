@@ -1,25 +1,24 @@
 <?php
     include("connessione.php");
+    session_start();
 
-    $data_catalogazione = $_GET['data_catalogazione'];
-    $nome = $_GET['nome'];
-    $sezione = $_GET['sezione'];
-    $cod_relativo = $_GET['cod_relativo'];
-    $definizione = $_GET['definizione'];
-    $denominazione_storica = $_GET['denominazione_storica'];
-    $descrizione = $_GET['descrizione'];
-    $modouso = $_GET['modouso'];
-    $anno_inizio_uso = $_GET['anno_inizio_uso'];
-    $annofineuso = $_GET['annofineuso'];
-    $scopo = $_GET['scopo'];
-    $stato = $_GET['stato'];
-    $osservazioni = $_GET['osservazioni'];
+    $data_catalogazione = $_POST['data_catalogazione'];
+    $nome = $_POST['nome'];
+    $sezione = $_POST['sezione'];
+    //$cod_relativo = $_POST['cod_relativo'];
+    $definizione = $_POST['definizione'];
+    $denominazione_storica = $_POST['denominazione_storica'];
+    $descrizione = $_POST['descrizione'];
+    $modo_uso = $_POST['modo_uso'];
+    $anno_inizio_uso = $_POST['anno_inizio_uso'];
+    $anno_fine_uso = $_POST['anno_fine_uso'];
+    $scopo = $_POST['scopo'];
+    $stato = $_POST['stato'];
+    $osservazioni = $_POST['osservazioni'];
 
     $permessi = $_SESSION['permessi'];
 
-    $query = "INSERT INTO repertinuova ( data_catalogazione, nome, sezione, cod_relativo, definizione, denominazione_storica, descrizione, modouso, anno_inizio_uso, annofineuso, scopo,stato, osservazioni)
-     VALUES ('$data_catalogazione', '$nome', '$sezione', $cod_relativo, '$definizione', '$denominazione_storica', '$descrizione', '$modouso', '$anno_inizio_uso', '$annofineuso', '$scopo', $stato, '$osservazioni')";
-
+    $query = "INSERT INTO repertinuova VALUES (NULL, '$data_catalogazione', '$nome', '$sezione', NULL, '$definizione', '$denominazione_storica', '$descrizione', '$modo_uso', '$anno_inizio_uso', '$anno_fine_uso', '$scopo', '$stato', '$osservazioni')";
 
     echo $query;
     $result = mysqli_query($conn, $query) or die ("errore");
