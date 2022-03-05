@@ -15,7 +15,7 @@
 </head>
 <body>
     <?php
-        include("connect.php");
+        include("connessione.php");
         $codassoluto=$_GET['id'];
         //query reperto
         $query="SELECT * FROM repertinuova WHERE codassoluto=$codassoluto";
