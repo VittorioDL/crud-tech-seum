@@ -1,10 +1,15 @@
 <?php
     include("connessione.php");
 
+    session_start();
+    if(!isset($_SESSION['logged_in'])){
+        header("Location: login-utenti.php"); 
+    }
+
     $data_catalogazione = $_GET['data_catalogazione'];
     $nome = $_GET['nome'];
     $sezione = $_GET['sezione'];
-    $cod_relativo = $_GET['cod_relativo'];
+    //$cod_relativo = $_GET['cod_relativo'];
     $definizione = $_GET['definizione'];
     $denominazione_storica = $_GET['denominazione_storica'];
     $descrizione = $_GET['descrizione'];
@@ -19,7 +24,7 @@
 
     $permessi = $_SESSION['permessi'];
 
-    $query = "UPDATE repertinuova SET (data_catalogazione = '$data_catalogazione', nome = '$nome', sezione = '$sezione', cod_relativo = $cod_relativo, definizione = '$definizione', denominazione_storica = '$denominazione_storica', descrizione = '$descrizione', modouso = '$modouso', anno_inizio_uso = '$anno_inizio_uso', anno_fine_uso = '$anno_fine_uso', scopo = '$scopo', stato = $stato, osservazioni = '$osservazioni') WHERE codassoluto = $cod_assoluto";
+    $query = "UPDATE repertinuova SET (data_catalogazione = '$data_catalogazione', nome = '$nome', sezione = '$sezione', cod_relativo = NULL, definizione = '$definizione', denominazione_storica = '$denominazione_storica', descrizione = '$descrizione', modouso = '$modouso', anno_inizio_uso = '$anno_inizio_uso', anno_fine_uso = '$anno_fine_uso', scopo = '$scopo', stato = $stato, osservazioni = '$osservazioni') WHERE codassoluto = $cod_assoluto";
 
     echo $query;
     $result = mysqli_query($conn, $query) or die ("errore");

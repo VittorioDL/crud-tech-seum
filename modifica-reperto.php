@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<?php
+include 'connessione.php';
+
+session_start();
+if(!isset($_SESSION['logged_in'])){
+    header("Location: login-utenti.php"); 
+}
+?>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +24,7 @@
 </head>
 <body>
     <?php
-        include("connect.php");
+        include("connessione.php");
         $codassoluto=$_GET['id'];
         //query reperto
         $query="SELECT * FROM repertinuova WHERE codassoluto=$codassoluto";
@@ -146,11 +156,11 @@
         if(isset($row5['didascalia'])) $didascaliaeng=$row5['didascalia'];
         else $didascaliaeng="Mancante";
     ?>
-    <form action='modifica-database.php' method='post'>
+    <form action='applica-modifica-reperto.php' method='post'>
     <!-- Nome reperto -->
     <div class="container py-5">
           <div class="d-flex justify-content-between">             
-	      <h2 class="mx-auto"><label for='nome'>Nome:</label>&nbsp;<?php echo "<input type='text' id='nome' name='nome' value="$nome" >" ?></h2>
+	      <h2 class="mx-auto"><label for='nome'>Nome:</label>&nbsp;<?php echo "<input type='text' id='nome' name='nome' value='$nome' >" ?></h2>
     </div>
     
     <!-- Bottone ritorno alla home -->
@@ -295,11 +305,8 @@
             </div>
         </div>
     </div>
-    </form>
-</div>
-    <div class="container"> 
-    <p class="text-center"><button class="btn btn-success"> <a href="modifica-database.php" class="text-light text-decoration-none">Conferma</a></button></p>
-</div>     
+    <button type='submit' class='text-light text-decoration-none btn btn-success my-3'>Conferma</button>
+    </form>   
         
 </body>
 </html>

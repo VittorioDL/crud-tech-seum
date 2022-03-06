@@ -52,7 +52,6 @@ if(!isset($_SESSION['logged_in'])){
     </div>
 <div class="container-fluid">
 <form action='applica-inserisci-reperto.php' method='post'>
-    
 <div class="container-fluid">
         <div class="row">
             <div class="col-lg-4 bg-success p-2 text-black bg-opacity-75">
@@ -174,9 +173,5 @@ if(!isset($_SESSION['logged_in'])){
     </div>
     <button type='submit' class='text-light text-decoration-none btn btn-success my-3'>Conferma</button>
 </form>
-</div>
-    <div class="container"> 
-    
-</div>
 </body>
 </html>
