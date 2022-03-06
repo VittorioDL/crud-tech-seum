@@ -52,8 +52,9 @@ $_SESSION['cod_a']=$codice_autore;
                         <div class="container mb-3">
                             <div class="d-flex justify-content-between">
                                 <!-- Bottone modifica autore -->
-                                <button class="text-light text-decoration-none btn btn-success my-3">Modifica autore</button>
-                                <a href="applica-modifica-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+                                <button type="submit" class="text-light text-decoration-none btn btn-success my-3">Modifica autore</button>
+                                <!-- Bottone annulla -->
+                                <a href="gestione-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
                             </div>
                         </div>
                     </div>

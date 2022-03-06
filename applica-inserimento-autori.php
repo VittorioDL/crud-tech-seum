@@ -8,11 +8,8 @@
   $inizio=$_POST['anno_n'];
   $fine=$_POST['anno_f'];
 
-  $query="INSERT INTO autore(nomeautore, annonascita, annofine) VALUES ('$nome','$inizio','$fine')";
+  $query="INSERT INTO autore VALUES (NULL,'$nome','$inizio','$fine')";
   $res=mysqli_query($conn,$query);
 
-  if ($permission==0)
-    header("location: home.php");
-  else ($permission==1)
-    header("location: home-admin.php");
+  header("location:gestione-autori.php");
  ?>

@@ -2,9 +2,8 @@
     include("connessione.php");
 
     session_start();
-    if(!isset($_SESSION['logged_in'])){
-        header("Location: login-utenti.php"); 
-    }
+
+    $permission=$_SESSION['permessi'];
 
     $data_catalogazione = $_GET['data_catalogazione'];
     $nome = $_GET['nome'];
@@ -20,9 +19,7 @@
     $stato = $_GET['stato'];
     $osservazioni = $_GET['osservazioni'];
 
-    $cod_assoluto = $_GET['cod_assoluto']
-
-    $permessi = $_SESSION['permessi'];
+    $cod_assoluto = $_GET['cod_assoluto'];
 
     $query = "UPDATE repertinuova SET (data_catalogazione = '$data_catalogazione', nome = '$nome', sezione = '$sezione', cod_relativo = NULL, definizione = '$definizione', denominazione_storica = '$denominazione_storica', descrizione = '$descrizione', modouso = '$modouso', anno_inizio_uso = '$anno_inizio_uso', anno_fine_uso = '$anno_fine_uso', scopo = '$scopo', stato = $stato, osservazioni = '$osservazioni') WHERE codassoluto = $cod_assoluto";
 

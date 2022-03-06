@@ -23,7 +23,7 @@ if(!isset($_SESSION['logged_in'])){
     <!-- Titolo e logout-->
     <div class="container py-5">
         <div class="d-flex justify-content-between">
-            <h2 class="mx-auto">Tech-Seum CRUD</h2>
+            <h2 class="mx-auto">Gestione autori</h2>
             <a href="logout.php" class="btn btn-dark btn-lg">Log out</a>
         </div>
     </div>

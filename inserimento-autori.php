@@ -16,7 +16,7 @@ if(!isset($_SESSION['logged_in'])){
 </head>
 <body>
     
-    <form method="GET" action="applica-inserimento-autori.php">
+    <form method="POST" action="applica-inserimento-autori.php">
             <div style="height: 150px;" align = "center" class="mt-3">
                 <div class="h-auto d-inline-block" style="width: 360px; background-color: rgba(0,0,255,.1)">
                     <div class="container mt-3">
@@ -45,8 +45,9 @@ if(!isset($_SESSION['logged_in'])){
                         <div class="container mb-3">
                             <div class="d-flex justify-content-between">
                                 <!-- Bottone aggiunta autore -->
-                                <button class="text-light text-decoration-none btn btn-success my-3">Aggiungi autore</button>
-                                <a href="applica-modifica-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
+                                <button type="submit" class="text-light text-decoration-none btn btn-success my-3">Aggiungi autore</button>
+                                <!-- Bottone annulla -->
+                                <a href="gestione-autori.php" class="text-light text-decoration-none btn btn-secondary my-3">Annulla</a>
                             </div>
                         </div>   
                     </div>

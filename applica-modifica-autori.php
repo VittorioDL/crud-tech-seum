@@ -9,11 +9,9 @@
   $inizio=$_POST['anno_n'];
   $fine=$_POST['anno_f'];
 
-  $query="UPDATE autori SET codautore='$codice', nomeautore='$nome', annonascita='$inizio', annofine='$fine' WHERE codautore='$codice';";
+  $query="UPDATE autore SET codautore='$codice', nomeautore='$nome', annonascita='$inizio', annofine='$fine' WHERE codautore='$codice';";
   $res=mysqli_query($conn,$query);
 
-  if ($permission==0)
-    header("location: home.php");
-  else ($permission==1)
-    header("location: home-admin.php");
+  header("location:gestione-autori.php");
+
  ?>

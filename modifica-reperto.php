@@ -166,7 +166,6 @@ if(!isset($_SESSION['logged_in'])){
     <!-- Bottone ritorno alla home -->
     <div class="container">
         <?php
-        session_start();
         $permessi=$_SESSION['permessi'];
         if($permessi==0)
         {
